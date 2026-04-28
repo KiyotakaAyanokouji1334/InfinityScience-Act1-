@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Taquiones - Misterios del Universo</title>
+    <style>
+        * { margin:0; padding:0; box-sizing:border-box; font-family:Arial,sans-serif; scroll-behavior:smooth; }
+        body { background:linear-gradient(to bottom,#000814,#001d3d,#003566,#000000); color:white; line-height:1.6; }
+        
+        /* HEADER */
+        header { text-align:center; padding:40px 20px; background:rgba(0,0,0,0.8); border-bottom:2px solid #00d4ff; }
+        header h1 { font-size:3rem; color:#90e0ef; text-shadow:0 0 15px #00d4ff; }
+        header p { margin-top:10px; font-size:1.2rem; color:#caf0f8; }
+
+        /* MARQUESINA */
+        .marquee-box { width:100%; overflow:hidden; background:#00d4ff; color:#000; padding:12px 0; font-weight:bold; border-bottom:2px solid #ffffff30; }
+        .marquee-content { display:inline-block; white-space:nowrap; padding-left:100%; animation:marquee 18s linear infinite; }
+        @keyframes marquee { from{transform:translateX(0);} to{transform:translateX(-100%);} }
+
+        /* NAV */
+        nav { display:flex; justify-content:center; flex-wrap:wrap; gap:15px; background:#001d3d; padding:15px; }
+        nav a { color:#90e0ef; text-decoration:none; font-weight:bold; transition:0.3s; }
+        nav a:hover { color:#fff; text-shadow:0 0 10px #00d4ff; }
+
+        /* GENERAL */
+        section { max-width:1100px; margin:40px auto; padding:25px; background:rgba(255,255,255,0.05); border-radius:15px; box-shadow:0 0 20px rgba(0,212,255,0.2); }
+        section h2 { color:#00d4ff; margin-bottom:15px; font-size:2rem; text-align:center; }
+        section p { margin-bottom:15px; text-align:justify; }
+
+        /* CARRUSEL (Original) */
+        .carousel { position:relative; max-width:700px; margin:30px auto; overflow:hidden; border-radius:15px; box-shadow:0 0 25px rgba(0,212,255,0.4); }
+        .carousel img { width:100%; display:none; }
+        .carousel img.active { display:block; }
+        .buttons, .dots { text-align:center; margin-top:15px; }
+        button { padding:12px 20px; margin:5px; border:none; border-radius:8px; background:#00d4ff; color:#000; font-weight:bold; cursor:pointer; transition:.3s; }
+        button:hover { background:#0099cc; transform:scale(1.05); }
+        .dot { height:12px; width:12px; margin:5px; display:inline-block; border-radius:50%; background:gray; cursor:pointer; }
+        .dot.active { background:#00d4ff; box-shadow:0 0 8px #00d4ff; }
+
+        /* TARJETAS */
+        .cards { display:grid; grid-template-columns:repeat(auto-fit,minmax(250px,1fr)); gap:20px; margin-top:20px; }
+        .card { background:rgba(0,0,0,0.6); padding:20px; border-radius:12px; border:1px solid #00d4ff; transition:.3s; }
+        .card:hover { transform:translateY(-8px); box-shadow:0 0 20px #00d4ff; }
+        .card h3 { color:#90e0ef; margin-bottom:10px; }
+
+        /* ARTÍCULOS */
+        .art-box { background: rgba(255,255,255,0.05); padding: 20px; margin-bottom: 20px; border-radius: 12px; border: 1px solid #00d4ff; }
+        .art-box h3 { color:#90e0ef; margin-bottom:10px; border-bottom: 1px solid rgba(0,212,255,0.3); padding-bottom: 5px; }
+        .art-box p { margin-bottom: 15px; font-size: 0.95rem; }
+
+        /* FOOTER */
+        footer { text-align:center; padding:20px; margin-top:40px; background:#000814; border-top:2px solid #00d4ff; color:#caf0f8; }
+        .creadores { margin-top:20px; padding-top:15px; border-top:1px solid rgba(255,255,255,0.2); }
+    </style>
+</head>
+<body>
+
+<header>
+    <h1>Taquiones</h1>
+    <p>Partículas hipotéticas más rápidas que la luz</p>
+</header>
+
+<div class="marquee-box">
+    <div class="marquee-content">✨ Ciencia • Universo • Física Cuántica • Relatividad • Velocidad de la Luz • Taquiones ✨</div>
+</div>
+
+<nav>
+    <a href="#que-son">¿Qué son?</a>
+    <a href="#galeria">Galería</a>
+    <a href="#teoria">Teoría</a>
+    <a href="#articulos">Artículos Científicos</a>
+    <a href="#curiosidades">Curiosidades</a>
+</nav>
+
+<section id="que-son">
+    <h2>¿Qué son los Taquiones?</h2>
+    <p>Los taquiones son partículas hipotéticas propuestas por la física teórica. Se caracterizan por viajar siempre a velocidades superiores a la de la luz. Si existieran, desafiarían principios fundamentales de la relatividad especial.</p>
+</section>
+
+<section id="galeria">
+    <h2>Galería Visual</h2>
+    <div class="carousel">
+        <img src="imágenes/t1.jpg" class="active" alt="imagen 1">
+        <img src="imágenes/t2.jpg" alt="imagen 2">
+        <img src="imágenes/t3.jpg" alt="imagen 3">
+        <img src="imágenes/t4.jpg" alt="imagen 4">
+        <img src="imágenes/t5.jpg" alt="imagen 5">
+    </div>
+    <div class="buttons">
+        <button onclick="prevSlide()">⟵ Anterior</button>
+        <button onclick="nextSlide()">Siguiente ⟶</button>
+    </div>
+    <div class="dots">
+        <span class="dot active" onclick="goToSlide(0)"></span>
+        <span class="dot" onclick="goToSlide(1)"></span>
+        <span class="dot" onclick="goToSlide(2)"></span>
+        <span class="dot" onclick="goToSlide(3)"></span>
+        <span class="dot" onclick="goToSlide(4)"></span>
+    </div>
+</section>
+
+<section id="teoria">
+    <h2>Base Teórica</h2>
+    <div class="cards">
+        <div class="card"><h3>Velocidad</h3><p>Siempre serían más rápidos que la luz.</p></div>
+        <div class="card"><h3>Masa Imaginaria</h3><p>Su masa estaría relacionada con números imaginarios.</p></div>
+        <div class="card"><h3>Paradojas</h3><p>Podrían alterar la causalidad y el tiempo.</p></div>
+    </div>
+</section>
+
+<section id="articulos">
+    <h2>Artículos Científicos</h2>
+    
+    <div class="art-box">
+        <h3>1. Feinberg, G. (1967)</h3>
+        <p>Trabajo seminal que introdujo el concepto de taquiones bajo el marco de la relatividad especial, proponiendo cómo una masa imaginaria podría ser consistente con las leyes físicas. Su propuesta desafió la idea de que nada puede superar la velocidad de la luz, estableciendo las bases matemáticas para el estudio de partículas con energía y momento inusuales. Feinberg sugirió que estos entes, al no poder estar nunca en reposo, definen un campo diferente al de la materia ordinaria, abriendo un debate profundo sobre la estructura del espacio-tiempo y la validez de las transformaciones de Lorentz aplicadas a partículas con masa al cuadrado negativa.</p>
+    </div>
+
+    <div class="art-box">
+        <h3>2. Chodos, A., et al. (1985)</h3>
+        <p>Este estudio explora la intrigante posibilidad de que el neutrino sea una partícula taquiónica, basándose en anomalías observadas en experimentos de desintegración beta. Los autores sugieren que si el neutrino poseyera una masa al cuadrado negativa, esto explicaría las velocidades superlumínicas reportadas en contextos específicos. Aunque la comunidad científica ha mantenido una postura cautelosa ante estas conclusiones, el artículo es fundamental para entender cómo la física de partículas intenta reconciliar los resultados experimentales inesperados con el Modelo Estándar. La investigación impulsó años de análisis sobre la naturaleza de la materia oscura y las interacciones cuánticas en energías extremadamente altas.</p>
+    </div>
+
+    <div class="art-box">
+        <h3>3. Sen, A. (1999)</h3>
+        <p>Ashoke Sen revolucionó la teoría de cuerdas al demostrar que los estados taquiónicos en sistemas de membranas D-branas no son necesariamente absurdos físicos, sino indicadores críticos de inestabilidad. Su trabajo describe cómo el vacío de un sistema de branas decae mediante la condensación de taquiones, resultando en una configuración mucho más estable. Este proceso es vital para entender la evolución de las cuerdas en el vacío y cómo se rompe la simetría original. Sen propone que la condensación es un fenómeno dinámico donde el campo taquiónico desciende a un mínimo de energía, conectando conceptos geométricos abstractos con la física de partículas.</p>
+    </div>
+
+    <div class="art-box">
+        <h3>4. Bilaniuk, O. M., & Sudarshan, E. C. G. (1969)</h3>
+        <p>Los autores abordan la compleja filosofía de la causalidad frente a la comunicación superlumínica. Argumentan que el concepto de causa y efecto podría ser relativo al marco de referencia inercial del observador, permitiendo la existencia de taquiones sin violar la lógica científica básica mediante una redefinición del flujo temporal. Su famoso principio de reinterpretación sugiere que un taquión detectado como emitido hacia atrás en el tiempo podría ser visto como uno absorbido y moviéndose hacia adelante. Esta propuesta técnica resultó vital para desmitificar las paradojas temporales que inicialmente frenaron el estudio académico serio sobre el potencial de las velocidades superlumínicas.</p>
+    </div>
+
+    <div class="art-box">
+        <h3>5. Bergstrom, L. (1970)</h3>
+        <p>Bergstrom se enfocó en las interacciones y dinámicas de dispersión entre dos taquiones. A diferencia de las partículas ordinarias, el choque de dos entes superlumínicos presenta una complejidad matemática extrema debido a la naturaleza de su energía negativa cuando se observan desde ciertos marcos. Este análisis ayudó a definir los límites de lo que podría ser una colisión observable en un experimento de altas energías. El estudio proporciona fórmulas para calcular secciones eficaces de choque, asumiendo que los taquiones interactúan mediante campos cuánticos predefinidos. Aunque los resultados son teóricos, este artículo es esencial para comprender la invisibilidad experimental de estas partículas.</p>
+    </div>
+</section>
+
+<section id="curiosidades">
+    <h2>Curiosidades</h2>
+    <p>Los taquiones aparecen en películas, series y videojuegos futuristas como explicación para viajes interestelares.</p>
+</section>
+
+<footer>
+    <div class="creadores">
+        <h3>Creadores</h3>
+        <p>Dariel Rabiela | Jesús Tovar | Amelie Avilez</p>
+    </div>
+</footer>
+
+<script>
+    let currentIndex = 0;
+    const slides = document.querySelectorAll(".carousel img");
+    const dots = document.querySelectorAll(".dot");
+    function showSlide(index){
+        slides.forEach((img,i)=>{
+            img.classList.remove("active");
+            dots[i].classList.remove("active");
+        });
+        slides[index].classList.add("active");
+        dots[index].classList.add("active");
+    }
+    function nextSlide(){
+        currentIndex = (currentIndex + 1) % slides.length;
+        showSlide(currentIndex);
+    }
+    function prevSlide(){
+        currentIndex = (currentIndex - 1 + slides.length) % slides.length;
+        showSlide(currentIndex);
+    }
+    function goToSlide(index){
+        currentIndex = index;
+        showSlide(currentIndex);
+    }
+    setInterval(nextSlide,5000);
+</script>
+</body>
+</html>
